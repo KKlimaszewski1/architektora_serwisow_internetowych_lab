@@ -1,0 +1,20 @@
+<div class="col-md-2 col-md-offset-5">
+  <table>
+  
+    <tr>
+      <th>Tytuł</th>
+      <th>Składniki</th>
+      <th>Opis</th>
+    </tr>
+  
+    <% @recipes.each do |recipe| %>
+      <tr>
+        <td><%= recipe.tytuł %></td>
+        <td><%= recipe.składniki %></td>
+        <td><%= recipe.opis %></td>
+        <td><%= link_to 'Pokaż', recipe_path(recipe) %></td>
+      </tr>
+    <% end %>
+ 
+  </table>
+</div>
