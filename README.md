@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,9 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# architektora_serwisow_internetowych_lab
+
+Program na zaliczenie lab z przedmiotu Architektóra Serwisów Internetowych.
+Program będzie zawierał bazę przepisów kulinarnych.
+>>>>>>> f9303ba410b5d502d5608e795f7aa98304c3872e
