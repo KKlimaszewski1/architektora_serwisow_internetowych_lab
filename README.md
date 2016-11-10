@@ -1,31 +1,29 @@
-<<<<<<< HEAD
-# README
+<p>Karol Klimaszewski</p>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<p>Zaliczenie:
+Książka Kucharska - <a href="https://fathomless-bastion-35868.herokuapp.com/">Link</a></p>
 
-Things you may want to cover:
+<p>Pomysł ma na celu zapisanie przepisów w jednym miejscu i wyeliminowanie możliwości ich zgubienia. Strona powstała również jako projekt na zaliczenie ćwiczeń laboratoryjnych z przedmiotu Architektura serwisów internetowych.</p>
 
-* Ruby version
+<p>Edycja, Usuwanie, Dodawanie przepisów jest chronione hasłem login: test hasło: test</p>
+<p>Dla nie autoryzowanego użytkownika dostępna jest jedynie strona główna, podgląd wszystkich przepisów, podgląd wybranego przepisu.</p>
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-=======
-# architektora_serwisow_internetowych_lab
-
-Program na zaliczenie lab z przedmiotu Architektóra Serwisów Internetowych.
-Program będzie zawierał bazę przepisów kulinarnych.
->>>>>>> f9303ba410b5d502d5608e795f7aa98304c3872e
+<table><thead>
+<tr>
+<th>nazwa</th>
+<th>wersja</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Ruby</td>
+<td>~&gt; 2.3.1</td>
+</tr>
+<tr>
+<td>Rails</td>
+<td>~&gt; 5.0.0</td>
+</tr>
+<tr>
+<td>SQLite</td>
+<td></td>
+</tr>
+</tbody></table>
