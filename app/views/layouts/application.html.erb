@@ -9,6 +9,33 @@
   </head>
 
   <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+          <a class="navbar-brand" <%= link_to 'Książka Kucharska', controller: 'welcome' %></a>
+          
+          
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="navbar-brand" <%= link_to '| Dodaj Przepis |', new_recipe_path %></a></li>
+            <li><a class="navbar-brand" <%= link_to '| Przeglądaj Przepisy |', controller: 'recipes' %></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
     <%= yield %>
+
+    <!-- Footer -->
+    <footer class="container-fluid bg-3 text-center">
+      <p>Klimaszewski Karol</p> 
+    </footer>
   </body>
 </html>
