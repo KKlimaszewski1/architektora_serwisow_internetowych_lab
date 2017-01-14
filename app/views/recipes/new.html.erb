@@ -1,7 +1,7 @@
 <body>
 
 <!-- First Container -->
-<div class="container-fluid bg-1">
+<div class="container-fluid bg-1 text-center" >
   <%= form_for :recipe, url: recipes_path do |f| %>
  
   <% if @recipe.errors.any? %>
@@ -18,24 +18,17 @@
     </div>
   <% end %>
  <div class="col-md-6 col-md-offset-3">
-    <p>
-      <%= f.label :tytuł %><br>
-      <%= f.text_field :tytuł, class:"form-control" %>
-    </p>
-  
-    <p>
-      <%= f.label :składniki %><br>
-      <%= f.text_area :składniki, class:"form-control" %>
-    </p>
-  
-    <p>
-      <%= f.label :opis %><br>
-      <%= f.text_area :opis, class:"form-control" %>
-    </p>
+    
+    <%= f.label :tytuł %><br>
+    <%= f.text_field :tytuł, class:"form-control" %><br>
 
-    <p>
-      <%= f.submit "Dodaj" %>
-    </p>
+    <%= f.label :składniki %><br>
+    <%= f.text_area :składniki, class:"form-control" %><br>
+
+    <%= f.label :opis %><br>
+    <%= f.text_area :opis, class:"form-control" %><br>
+
+    <%= f.submit "Dodaj przepis" %>
     
   </div>
  

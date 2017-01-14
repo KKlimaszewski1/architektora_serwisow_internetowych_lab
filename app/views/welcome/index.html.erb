@@ -2,6 +2,11 @@
 
 <!-- First Container -->
 <div class="container-fluid bg-1 text-center">
+
+  <% flash.each do |key, message| %>
+    <div class="alert alert-<%= key %>"><%= message %></div>
+  <% end %>
+
   <h3 class="margin">Gdzie Ja Jestem?</h3>
   <p>Trafiłeś na stronę internetową zawierającą przepisy kulinarne.</p>
 </div>

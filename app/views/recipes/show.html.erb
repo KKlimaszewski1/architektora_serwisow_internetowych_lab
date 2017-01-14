@@ -1,8 +1,11 @@
 <body>
 
 <!-- First Container -->
-<div class="container-fluid bg-1">
+<div class="container-fluid bg-1 text-center">
   <div class="col-md-6 col-md-offset-3">
+    <% flash.each do |key, message| %>
+      <div class="alert alert-<%= key %>"><%= message %></div>
+    <% end %>
     <p>
       <strong>Tytuł:</strong>
       <%= @recipe.tytuł %>
@@ -17,9 +20,20 @@
       <strong>Opis:</strong>
       <%= @recipe.opis %>
     </p>
-
+    <p>
+      <strong>Autor:</strong>
+      <%= @user.email %>
+    </p>
   </div>
+  <% if @current_user == @user %>
+    <td><%= link_to 'Edytuj', edit_recipe_path(@recipe) %></td>
+    <td><%= link_to 'Usuń', recipe_path(@recipe),
+            method: :delete,
+            data: { confirm: 'Czy jesteś pewny?' } %></td>
+  <% end %>
 
 </div>
-
+<div class="container-fluid bg-2 text-center">
+  <%= render 'comments/comment' %>
+</div>
 </body>

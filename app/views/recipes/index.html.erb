@@ -16,10 +16,6 @@
           <td><%= recipe.składniki %></td>
           <td><%= recipe.opis %></td>
           <td><%= link_to 'Pokaż', recipe_path(recipe) %></td>
-          <td><%= link_to 'Edytuj', edit_recipe_path(recipe) %></td>
-          <td><%= link_to 'Usuń', recipe_path(recipe),
-                  method: :delete,
-                  data: { confirm: 'Czy jesteś pewny?' } %></td>
         </tr>
       <% end %>
     </table>

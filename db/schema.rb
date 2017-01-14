@@ -10,14 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161109181641) do
+ActiveRecord::Schema.define(version: 20170113205627) do
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "recipe_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_comments_on_recipe_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "recipes", force: :cascade do |t|
     t.string   "tytuł"
     t.text     "składniki"
     t.text     "opis"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_recipes_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "username"
+    t.string   "email",                                 null: false
+    t.string   "password"
+    t.string   "password_confirmation"
+    t.string   "password_digest"
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.string   "remember_digest"
+    t.string   "activation_digest"
+    t.boolean  "activated",             default: false
+    t.datetime "activated_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
 end

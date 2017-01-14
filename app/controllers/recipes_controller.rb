@@ -1,6 +1,5 @@
 class RecipesController < ApplicationController
-
-http_basic_authenticate_with name: "test", password: "test", except: [:index, :show]
+  before_action :find_user
 
   def index
     @recipes = Recipe.all
@@ -8,6 +7,8 @@ http_basic_authenticate_with name: "test", password: "test", except: [:index, :s
  
   def show
     @recipe = Recipe.find(params[:id])
+    @comments = Comment.where(recipe_id: @recipe).order("created_at DESC")
+    @user = User.find(@recipe.user_id)
   end
  
   def new
@@ -20,12 +21,15 @@ http_basic_authenticate_with name: "test", password: "test", except: [:index, :s
  
   def create
     @recipe = Recipe.new(recipe_params)
- 
+    @recipe.user_id = current_user.id
+    @recipe.save
+
     if @recipe.save
-      redirect_to @recipe
+        redirect_to @recipe
     else
-      render 'new'
+        render 'new'
     end
+
   end
  
   def update
@@ -46,7 +50,13 @@ http_basic_authenticate_with name: "test", password: "test", except: [:index, :s
   end
  
   private
-    def recipe_params
-      params.require(:recipe).permit(:tytuł, :składniki, :opis)
-    end
+
+  def recipe_params
+    params.require(:recipe).permit(:tytuł, :składniki, :opis)
+  end
+
+  def find_user
+    @current_user = User.find_by(id: session[:user_id])
+  end
+
 end

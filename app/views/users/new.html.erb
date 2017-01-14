@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="container-fluid bg-1 text-center">
+        <h1 class="text-center">Dołącz do nas</h1><br>
+        <div class="col-md-6 col-md-offset-3">
+            <%= form_for(@user) do |f| %>
+
+                <% flash.each do |key, message| %>
+                    <div class="alert alert-<%= key %>"><%= message %></div>
+                <% end %>
+                
+                <div class="form-group">
+                    <%= f.label :username, "Login" %>
+                    <%= f.text_field :username, class: "form-control" %>
+                </div>
+
+                <div class="form-group">
+                    <%= f.label :email %>
+                    <%= f.email_field :email, class: "form-control" %>
+                </div>
+
+                <div class="form-group">
+                    <%= f.label :password, "Hasło" %>
+                    <%= f.password_field :password, class: "form-control" %>
+                </div>
+                
+                <div class="form-group">
+                    <%= f.label :password_confirmation, "Powtórz hasło"  %>
+                    <%= f.password_field :password_confirmation, class: "form-control" %>
+                </div>
+
+                <%= f.submit "Załóż konto", class: "btn btn-primary" %>
+                
+            <% end %>  
+            <br>
+            
+        </div>
+    </div>
+</div>

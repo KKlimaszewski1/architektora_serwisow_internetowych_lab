@@ -1,0 +1,12 @@
+
+<% @comments.each do |comment| %>
+    <p><b><%= comment.user.email %></p></b>
+    <p><%= comment.content %></p>
+    
+    <% if current_user == comment.user %>
+        <td><%= link_to "| Usuń komentarz |", [comment.recipe, comment], method: :delete %>
+        <td><%= link_to "| Edytuj komentarz |", edit_recipe_comment_path(comment.recipe, comment) %><br></br>
+    <% end %>
+<% end %>
+
+<%= render 'comments/form' %>

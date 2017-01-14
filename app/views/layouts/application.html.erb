@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Projekt</title>
+    <title>Książka Kucharska</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -13,6 +13,7 @@
     <nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">
+          
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -24,18 +25,28 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-right">
-            <li><a class="navbar-brand" <%= link_to '| Dodaj Przepis |', new_recipe_path %></a></li>
-            <li><a class="navbar-brand" <%= link_to '| Przeglądaj Przepisy |', controller: 'recipes' %></li>
+
+            
+            <li><%= link_to '| Przeglądaj Przepisy |', controller: 'recipes' %></li>
+            <% if sign_in? %>
+              <li><%= link_to '| Dodaj Przepis |', new_recipe_path %></li>
+              <li><%= link_to current_user.username, root_path %></li>
+              <li><%= link_to "Wyloguj", logout_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to "| Zaloguj się |", login_path %></li>
+              <li><%= link_to "| Dołącz do nas |", signup_path %></li>
+            <% end %>
+            <!--<li><a><%= link_to "| User Auth |", root_path, class: 'navbar-brand' %></a></li>-->
           </ul>
         </div>
       </div>
     </nav>
 
     <%= yield %>
-
+    
     <!-- Footer -->
     <footer class="container-fluid bg-3 text-center">
-      <p>Klimaszewski Karol</p> 
+      <p>Autor: Klimaszewski Karol</p> 
     </footer>
   </body>
 </html>

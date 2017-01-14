@@ -55,6 +55,24 @@ Rails.application.configure do
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "projekt_#{Rails.env}"
+# Don't care if the mailer can't send.
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "gmail.com",
+    authentication: :plain,
+    enable_starttls_auto: true,
+    user_name: "nowekontokucharskie@gmail.com",
+    password: "Qwer1234!",
+    openssl_verify_mode: 'none'
+  }  
+  host = 'https://fathomless-bastion-35868.herokuapp.com/'
+  config.action_mailer.default_url_options = { host: host }
+
+  config.action_mailer.perform_caching = false
+
   config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.

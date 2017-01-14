@@ -1,0 +1,9 @@
+<div class="container-fluid bg-1 text-center">
+    <div class="col-md-6 col-md-offset-3">
+        <%= form_for([@recipe, @comment]) do |f| %>
+            <%= f.label "Komentarz" %>
+            <%= f.text_area :content, class:"form-control"  %><br>
+            <%= f.submit "Edytuj komentarz" %>
+        <% end %>
+    </div>
+</div>
