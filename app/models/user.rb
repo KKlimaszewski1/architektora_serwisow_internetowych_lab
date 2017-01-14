@@ -15,8 +15,6 @@ class User < ApplicationRecord
                         uniqueness: { case_sensitive: false }
     validates :password, presence: true, length: { minimum: 7, maximum: 255 }
 
-    attr_accessor :username, :email, :password
-
     has_many :recipes
     has_many :comments
     def User.new_token
