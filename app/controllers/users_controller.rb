@@ -8,10 +8,8 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             @user.send_activation_email
-            flash[:success] = "Sprawdz swój adres email i aktywuj konto."
             redirect_to root_path
         else
-            flash[:warning] = "Błędne dane. Sprawdz wpisane pozycje."
             render 'new'
         end
     end

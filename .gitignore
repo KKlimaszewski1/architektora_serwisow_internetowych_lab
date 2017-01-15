@@ -6,6 +6,7 @@
 
 # Ignore bundler config.
 /.bundle
+README.md
 
 # Ignore the default SQLite database.
 /db/*.sqlite3

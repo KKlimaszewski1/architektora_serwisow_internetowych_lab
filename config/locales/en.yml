@@ -18,13 +18,18 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
-
 en:
   activerecord:
     errors:
+      messages:
+        confirmation: "Hasła nie pasują do siebie."
       models:
         user:
           attributes:
-            username:
-              blank: Nick nie może być pusty.
+            password:
+              blank: "Hasło nie może być puste."
+              confirmation: "Hasła nie pasują do siebie."
+            password_confirmation:
+              blank: "Proszę powtórzyć hasło."
+
 

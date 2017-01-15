@@ -2,6 +2,22 @@
     <div class="container-fluid bg-1 text-center">
         <h1 class="text-center">Dołącz do nas</h1><br>
         <div class="col-md-6 col-md-offset-3">
+            <% if @user.errors.any? %>
+                <div id="error_explanation">
+                    <h2>
+                        Błędy formularza:
+                    </h2>
+                    <ul>
+                        <% @user.errors.messages.each do |attr, msg| %>
+                            <% msg.each do |val| %>
+                                <div class="alert alert-warning"><%= val %></div>
+                            <% end %>
+                        <% end %>
+                    </ul>
+                </div>
+            <% end %>
+
+
             <%= form_for(@user) do |f| %>
 
                 <% flash.each do |key, message| %>

@@ -4,19 +4,18 @@ class User < ApplicationRecord
     has_secure_password
     before_save :email_downcase
 
-    validates :username, presence: true,
-                        allow_blank: false,
-                        length: { maximum: 255 }
+    validates :username, presence: { message: "Login jest wymagany."},
+                        length: { minimum: 5, maximum: 25, message: "Login musi składać się z 5 do 25 znaków." }
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
-    validates :email, presence: true, 
-                        allow_blank: false,
-                        length: { maximum: 255 },
-                        format: { with: VALID_EMAIL_REGEX },
-                        uniqueness: { case_sensitive: false }
-    validates :password, presence: true, length: { minimum: 7, maximum: 255 }
+    validates :email, presence: { message: "Email jest wymagany."}, 
+                        format: { with: VALID_EMAIL_REGEX, message: "Format musi być właściwy dla aresu email." },
+                        uniqueness: { case_sensitive: false, message: "Już istnieje konto o takim adresie email. Email musi być unikalny." }
+    validates :password, presence: { message: "Hasło musi składać się z 7 do 15 znaków." }, 
+                        length: { minimum: 7, maximum: 15, message: "Hasło musi składać się z 7 do 15 znaków." }
 
     has_many :recipes
     has_many :comments
+
     def User.new_token
         SecureRandom.urlsafe_base64
     end
