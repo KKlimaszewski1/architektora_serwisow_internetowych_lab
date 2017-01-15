@@ -26,8 +26,8 @@
     </p>
   </div>
   <% if @current_user == @user %>
-    <td><%= link_to 'Edytuj', edit_recipe_path(@recipe) %></td>
-    <td><%= link_to 'Usuń', recipe_path(@recipe),
+    <td><%= link_to '| Edytuj |', edit_recipe_path(@recipe) %></td>
+    <td><%= link_to '| Usuń |', recipe_path(@recipe),
             method: :delete,
             data: { confirm: 'Czy jesteś pewny?' } %></td>
   <% end %>
