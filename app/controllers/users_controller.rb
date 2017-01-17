@@ -8,14 +8,11 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             @user.send_activation_email
+            flash[:warning] = "Konto zostało założone. Sprawdz email i kliknij w link aktywacyjny."
             redirect_to root_path
         else
             render 'new'
         end
-    end
-
-    def show
-
     end
 
     private

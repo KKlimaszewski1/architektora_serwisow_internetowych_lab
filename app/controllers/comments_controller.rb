@@ -6,10 +6,6 @@ class CommentsController < ApplicationController
 
     end
 
-    def edit
-
-    end
-
     def update
         if @comment.update(params[:comment].permit(:content))
             redirect_to recipe_path(@recipe)

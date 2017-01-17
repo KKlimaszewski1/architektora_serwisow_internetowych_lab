@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
                 redirect_to root_path
             else
                 message = "Konto jest nieaktywne."
-                message += "Sprawdz swój email i kliknij w link aktywacyjny."
+                message += " Sprawdz swój email i kliknij w link aktywacyjny."
                 flash[:warning] = message
                 redirect_to root_url
             end
