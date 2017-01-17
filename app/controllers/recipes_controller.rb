@@ -2,11 +2,15 @@ class RecipesController < ApplicationController
   before_action :find_user
 
   def index
-    if params[:search]
+    if params[:search].blank?
       @recipes = Recipe.all
     else
       @recipes = Recipe.search(params[:search])
     end
+  end
+
+  def search
+    @recipes = Recipe.all
   end
  
   def show

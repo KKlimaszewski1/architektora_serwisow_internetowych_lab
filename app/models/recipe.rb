@@ -4,6 +4,6 @@ class Recipe < ApplicationRecord
 
 
     def self.search(params)
-        recipes = Recipe.where("tytuł LIKE ?", "%#{params[:search]}%") if params[:search].present?
+        recipes = Recipe.where("tytuł LIKE ?", "%#{params[:search]}%")
     end
 end
