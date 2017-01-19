@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="container-fluid bg-1 text-center">
+        <h1 class="text-center">Restart hasła</h1></br>
+        <div class="col-md-6 col-md-offset-3">
+            <%= form_for @user, :url => password_reset_path(params[:id]) do |f| %>
+                <% if @user.errors.any? %>
+                    <% @user.errors.messages.each do |attr, msg| %>
+                        <% msg.each do |val| %>
+                            <div class="alert alert-warning"><%= val %></div>
+                        <% end %>
+                    <% end %>
+                <% end %>
+        
+                <%= f.label :password, "Nowe hasło"%></br>
+                <%= f.password_field :password %></br></br>
+
+                <%= f.label :password_confirmation, "Powtórz nowe hasło" %></br>
+                <%= f.password_field :password_confirmation %></br></br>
+
+                <%= f.submit "Zapisz nowe hasło" %>
+
+            <% end %>
+            <br>
+        </div>
+    </div>
+</div>

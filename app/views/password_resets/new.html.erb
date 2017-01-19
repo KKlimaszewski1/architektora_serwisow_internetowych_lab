@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="container-fluid bg-1 text-center">
+        <% flash.each do |key, message| %>
+            <div class="alert alert-<%= key %>"><%= message %></div>
+        <% end %>
+        <h1 class="text-center">Restart hasła</h1><br>
+        <div class="col-md-6 col-md-offset-3">
+            <%= form_tag password_resets_path, :method => :post do %> 
+                <%= label_tag :email %>
+                <%= text_field_tag :email, params[:email] %>
+                <%= submit_tag "Restart hasła" %>
+            <% end %>
+            
+            <br>
+        </div>
+    </div>
+</div>

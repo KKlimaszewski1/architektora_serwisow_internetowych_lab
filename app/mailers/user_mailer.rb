@@ -7,6 +7,11 @@ class UserMailer < ApplicationMailer
   #
   def account_activation(user)
     @user = user
-    mail to: user.email, Subject: "Aktywacja konta na Książka Kucharska."
+    mail :to => user.email, :subject => "Aktywacja konta w serwisie Książka Kucharska"
+  end
+
+  def password_reset(user)
+    @user = user
+    mail :to => user.email, :subject => "Restart hasła do serwisu Książka Kucharska"
   end
 end

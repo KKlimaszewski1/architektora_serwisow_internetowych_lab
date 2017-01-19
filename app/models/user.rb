@@ -16,6 +16,14 @@ class User < ApplicationRecord
     has_many :recipes
     has_many :comments
 
+    def send_password_reset
+
+        self.password_reset_token = User.new_token
+        update_attribute(:password_reset_sent_at, Time.zone.now)
+
+        UserMailer.password_reset(self).deliver_now
+    end
+
     def User.new_token
         SecureRandom.urlsafe_base64
     end

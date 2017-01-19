@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+
+
   resources :recipes do
     resources :comments
     collection do
@@ -15,5 +17,6 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
 
   resources :accountactivations
+  resources :password_resets
 
 end
